@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout">
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+    </head>
+
+    <body>
+        <h1 layout:fragment="header">Delivery <small>Painel de Controle</small></h1>
+        
+        <div layout:fragment="content" class="container">
+            <div class="jumbotron">
+                <a th:href="@{/properties/}" class="btn btn-lg btn-info">Ambiente</a>
+                <a th:href="@{/h2}" class=" btn btn-lg btn-info">Console</a>
+                <a th:href="@{/clientes/}" class="btn btn-lg btn-info">Cadastro de clientes</a>
+                <a th:href="@{/itens/}" class="btn btn-lg btn-info">Cadastro de itens</a>
+                <a th:href="@{/pedidos/}" class="btn btn-lg btn-info">Cadastro de pedidos</a>
+            </div>
+
+        </div>
+    </body>
+
+    </html>

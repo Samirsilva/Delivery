@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos</title>
+</head>
+
+<body>
+    <h1 layout:fragment="header">Pedido</h1>
+    <div layout:fragment="content" class="well">
+        <div class="alert alert-success" th:if="${globalMessage}" th:text="${globalMessage}">Pedido gravado com sucesso</div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Data</th>
+                    <th>Valor Total</th>
+                    <th>Itens</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="id" th:text="${pedido.id}">123</td>
+                    <td id="nome" th:text="${pedido.cliente.nome}">Nome</td>
+                    <td id="data" th:text="${pedido.data}">Data</td>
+                    <td id="valorTotal" th:text="${pedido.valorTotal}">Valor total</td>
+                    <td id="itens" th:each="item : ${pedido.itens}">
+                        <div th:text="${item.nome}">nome</div>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+        <div class="pull-left">
+            <a href="form.html" th:href="@{'/pedidos/alterar/' + ${pedido.id}}">Alterar</a>
+            |<a href="pedidos" th:href="@{'/pedidos/remover/' + ${pedido.id}}">Remover</a>
+            |<a href="pedidos" th:href="@{'/pedidos/novo/'}">Novo Pedido</a>
+            |<a href="list.html" th:href="@{/pedidos/}">Voltar</a>
+        </div>
+    </div>
+</body>
+
+</html>
